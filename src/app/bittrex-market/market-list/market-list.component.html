@@ -1,0 +1,66 @@
+<div class="example-container mat-elevation-z8">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="MarketName">
+      <mat-header-cell *matHeaderCellDef> Market Name </mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngClass]="[liveDataFavs.indexOf(element.MarketName)>=0 ? 'mat-cell-star' : '']">
+        <i class="fas fa-star" *ngIf="liveDataFavs.indexOf(element.MarketName)>=0">
+        </i> {{element.MarketName}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- High Column -->
+    <ng-container matColumnDef="High">
+      <mat-header-cell *matHeaderCellDef> High </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <i class="fab fa-btc"></i> {{element.High}} </mat-cell>
+    </ng-container>
+
+    <!-- Low Column -->
+    <ng-container matColumnDef="Low">
+      <mat-header-cell *matHeaderCellDef> Low </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <i class="fab fa-btc"></i> {{element.Low}} </mat-cell>
+    </ng-container>
+
+    <!-- Last Column -->
+    <ng-container matColumnDef="Last">
+      <mat-header-cell *matHeaderCellDef> Last </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <i class="fab fa-btc"></i>
+        <span [ngClass]="[element.Last<= element.Bid ? 'market-text-down' : 'market-text-up']">
+          {{element.Last}}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Bid Column -->
+    <ng-container matColumnDef="Bid">
+      <mat-header-cell *matHeaderCellDef> Bid </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <i class="fab fa-btc"></i> {{element.Bid}} </mat-cell>
+    </ng-container>
+
+    <!-- Opt Column -->
+    <ng-container matColumnDef="Opt">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button (click)="selectLiveData(element)" mat-button color="primary">Live Data</button>
+        <a href="https://bittrex.com/Market/Index?MarketName={{element.MarketName}}" target="_blank" mat-button color="accent">Go Bittrex</a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

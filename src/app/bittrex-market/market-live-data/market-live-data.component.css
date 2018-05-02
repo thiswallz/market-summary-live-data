@@ -1,0 +1,21 @@
+.mat-list-item {
+  color: #ffffff;
+}
+.mat-subheader {
+  padding-top: 20px;
+  color: #ffffff;
+}
+
+.fa-ask {
+  color: #ff3737;
+}
+.fa-bid {
+  color: #275aff;
+}
+
+table {
+  table-layout: fixed;
+}
+td {
+  width: 50%;
+}

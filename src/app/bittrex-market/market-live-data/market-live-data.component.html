@@ -1,0 +1,16 @@
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<h3 matSubheader>
+  <i class="fas fa-bolt fa-fw"></i> Live Data ({{this.market}})
+</h3>
+<table role="list">
+  <tr *ngFor="let item of liveData?.reverse()" role="listitem">
+    <td>
+      <i class="fas fa-dot-circle fa-fw fa-ask"></i>
+      {{item.Ask}}
+    </td>
+    <td>
+      <i class="fas fa-dot-circle fa-fw fa-bid"></i>
+      {{item.Bid}}
+    </td>
+  </tr>
+</table>
