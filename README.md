@@ -2,11 +2,11 @@
 
 #### App
 
-WebApp running
-
+Grid and Livedata
 ![Alt text](img1.PNG?raw=true 'Grid and Livedata')
 
-![Alt text](img1.PNG?raw=true 'Favorites')
+Favorites Livedata
+![Alt text](img2.PNG?raw=true 'Favorites')
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
