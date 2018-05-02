@@ -2,9 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+## Proxy Server (Nginx)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Start Nginx with this configuration (In order to bypass CORS problems with the Bittrex API REST) i.e,
+
+
+```sh
+   server {
+       listen 4000;
+       location /getmarketsummaries {
+           add_header Access-Control-Allow-Origin *;
+           proxy_pass https://bittrex.com/api/v1.1/public/getmarketsummaries;
+       }
+
+   }
+```
+
+### \* You can use other tool/server/extension to bypass bittrex, like an Chrome CORS extension, just remember change the URL in src/environments/environment.ts and src/environments/environment.prod k.ts
+
+## Socket server (NodeJS) - LiveData at http://localhost:3000/
+
+```sh
+   cd server/
+   node server.js
+```
+
+## Application Web (Angular using Material Design)
+
+```sh
+   npm i
+   ng serve
+```
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4001/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
