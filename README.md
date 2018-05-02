@@ -1,14 +1,15 @@
 # MarketSummaries
 
-#### App
+## Web App
 
-Grid and Livedata
+### Grid and Livedata
+
 ![Alt text](img1.PNG?raw=true 'Grid and Livedata')
 
 Favorites Livedata
 ![Alt text](img2.PNG?raw=true 'Favorites')
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Proxy Server (Nginx) - Api rest at http://localhost:4000/
 
